@@ -1,0 +1,58 @@
+var log = function() {
+    console.log.apply(console, arguments)
+}
+
+var e = function(selector) {
+    return document.querySelector(selector)
+}
+
+var es = function(selector) {
+    return document.querySelectorAll(selector)
+}
+
+var appendHtml = function(element, html) {
+	element.insertAdjacentHTML('beforeend', html)
+}
+
+var bindEvent = function(element, eventName, callback) {
+    element.addEventListener(eventName, callback)
+}
+
+var toggleClass = function(element, className) {
+    if (element.classList.contains(className)) {
+        element.classList.remove(className)
+    } else {
+        element.classList.add(className)
+    }
+}
+
+var removeClassAll = function(className) {
+    var selector = '.' + className
+    var elements = document.querySelectorAll(selector)
+    for (var i = 0; i < elements.length; i++) {
+        var e = elements[i]
+        e.classList.remove(className)
+    }
+}
+
+var clearActive = function(selector) {
+    var s = document.querySelector(selector)
+    if (s != null) {
+        // 使用 classList 可以访问一个元素的所有 class
+        // remove 可以删除一个 class
+        s.classList.remove(selector)
+    }
+}
+
+var bindAll = function(selector, eventName, callback) {
+    var elements = document.querySelectorAll(selector)
+    for(var i = 0; i < elements.length; i++) {
+        var e = elements[i]
+        bindEvent(e, eventName, callback)
+    }
+}
+
+// find 函数可以查找 element 的所有子元素
+var find = function(element, selector) {
+    return element.querySelector(selector)
+}

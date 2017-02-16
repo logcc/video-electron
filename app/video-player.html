@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel = 'stylesheet' href='css/player.css'/>
+    </head>
+    <body>
+        <section id='playerContainer' class='player paused'>
+            <video id='videoContainer' class='video draggable' ></video>
+            <div id='controlContainer' class='controls'>
+                <button id='play' class='play icon-play'></button>
+                <button id='pause' class='hide pause icon-pause'></button>
+                <progress id ='prog' class='progress' ></progress>
+                <div id='count' class='count'></div>
+                <button id='mute' class='icon-vol mute'></button>
+                <button id='volume' class='icon-vol2 volume'></button>
+                <input type='range'
+                       id='volRange'
+                       class='volRange hidden'
+                       max=1
+                       min=0
+                       step=0.05
+                />
+                <button id='fullscreen' class='icon-fullscreen fullscreen'></button>
+                <button id='smallscreen' class='icon-fullscreen-exit smallscreen'></button>
+            </div>
+            <section id='dropArea' class='dropArea'>
+                <div class='dropZone'>
+                    Electron视频播放器
+                </div>
+                <button id='fileChooser' class='fileChooser'>
+                    打开文件
+                </button>
+                <input type='file'
+                       accept="video/*"
+                       id='chooseVideo'
+                       class='chooseVideo hide'
+                />
+            </section>
+            <button id='close' class='close'>X</button>
+            <section id='error' class='error hide hidden'>
+                <h1 id='errorMessage'></h1>
+            </section>
+        </section>
+        <script src ='js/dom.js' ></script>
+        <script src ='js/player.js' ></script>
+    </body>
+</html>
